@@ -36,7 +36,7 @@ function rotate_log {
   local current_size="$(ls -s $LOG_FILE | cut -d" " -f1)"
   if [ $current_size -ge $max_size ]; then
     mv $LOG_FILE "${LOG_FILE}_$(date +%F)"
-	  touch $LOG_FILE
+    touch $LOG_FILE
   fi
 }
 
