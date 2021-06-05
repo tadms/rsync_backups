@@ -32,11 +32,11 @@ function logger {
 }
 
 function rotate_log {
-  local max_size=10000
+  local max_size=5000
   local current_size="$(ls -s $LOG_FILE | cut -d" " -f1)"
   if [ $current_size -ge $max_size ]; then
-    rm -f $LOG_FILE
-	touch $LOG_FILE
+    mv $LOG_FILE "${LOG_FILE}_$(date +%F)"
+	  touch $LOG_FILE
   fi
 }
 
